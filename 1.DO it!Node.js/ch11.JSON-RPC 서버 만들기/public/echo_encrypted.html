@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>echo</title>
+    <meta charset="utf-8" />
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="jquery.jsonrpc.js"></script>
+    <script src="cryptojs/aes.js"></script>
+    <script>
+      $(function () {
+        $.jsonRPC.setup({
+          endPoint: "http://localhost:3000/api",
+          namespace: "",
+        });
+
+        $("#requestButton").click(function () {
+          const message = $("#messageInput").val();
+
+          //암호화 테스트
+          const secret = "my secret";
+          const encrypted = "" + CryptoJS.AES.encrypt(message, secret);
+          console.log("암호화 테스트: " + encrypted);
+
+          //복호화 테스트
+          const decrypted = CryptoJS.AES.decrypt(encrypted, secret).toString(
+            CryptoJS.enc.Utf8
+          );
+          console.log("복호화 테스트:" + decrypted);
+          const method = "echo_encrypted";
+
+          $.jsonRPC.request(method, {
+            id: 1001,
+            params: [encrypted],
+            success: function (data) {
+              println("정상 응답을 받았습니다.");
+              console.dir(data);
+
+              const secret = "my secret";
+              const encrypted = data.result[0];
+              const decrypted = CryptoJS.AES.decrypt(
+                encrypted,
+                secret
+              ).toString(CryptoJS.enc.Utf8);
+
+              console.log(decrypted);
+              println(decrypted);
+            },
+            error: function (data) {
+              println("오류 응답을 받았습니다.");
+              console.dir(data);
+              println(data.error.message);
+            },
+          });
+          println("[" + method + "] method로 요청을 보냈습니다.");
+        });
+      });
+
+      function println(data) {
+        $("#results").append("<p>" + data + "</p>");
+      }
+    </script>
+  </head>
+
+  <body>
+    <h3>JSON-RPC Echo테스트</h3>
+    <br />
+    <textarea name="messageInput" id="messageInput"></textarea>
+    <br />
+    <input
+      type="button"
+      name="requestButton"
+      id="requestButton"
+      value="요청하기"
+    />
+    <br />
+    <p>결과</p>
+    <div id="results"></div>
+  </body>
+</html>

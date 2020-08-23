@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>add테스트</title>
+    <meta charset="utf-8" />
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="jquery.jsonrpc.js"></script>
+    <script>
+      $(function () {
+        $.jsonRPC.setup({
+          endPoint: "http://localhost:3000/api",
+          namespace: "",
+        });
+
+        $("#requestButton").click(function () {
+          const method = "listuser";
+          const id = 1004;
+          let params = [
+            { index: 0, id: "test01", name: "소녀시대" },
+            { index: 1, id: "test02", name: "동방신기" },
+          ];
+
+          sendRequest(method, id, params);
+
+          println("[" + method + "] method로 요청을 보냈습니다.");
+        });
+      });
+      //요청에 필요한 기본 함수
+      function sendRequest(method, id, params) {
+        $.jsonRPC.request(method, {
+          id: id,
+          params: params,
+          success: function (data) {
+            println("정상 응답을 받았습니다.");
+            console.dir(data.result);
+            processResponse(data);
+          },
+          error: function (data) {
+            println("오류 응답을 받았습니다.");
+            console.dir(data);
+            processError(data);
+          },
+        });
+      }
+      //성공응답을 받은 경우 호출되는 함수
+      function processResponse(data) {
+        if (Array.isArray(data.result)) {
+          println("사용자 수 : " + data.result.length);
+          data.result.forEach(function (item, index) {
+            println("#" + index + " : " + item.id + ", " + item.name);
+          });
+        } else {
+          println("결과 데이터가 배열 타입이 아닙니다.");
+        }
+      }
+
+      // 에러 응답을 받은 경우 호출되는 함수
+      function processError(data) {
+        println(data.error.code + ", " + data.error.message);
+      }
+
+      function println(data) {
+        $("#results").append("<p>" + data + "</p>");
+      }
+    </script>
+  </head>
+
+  <body>
+    <h3>JSON-RPC 사용자 리스트 테스트</h3>
+
+    <br />
+    <input
+      type="button"
+      value="요청하기"
+      name="requestButton"
+      id="requestButton"
+    />
+    <br />
+    <p>결과</p>
+    <div id="results"></div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>나의 메모</title>
+  </head>
+  <body>
+    <h1>나의 메모</h1>
+    <br />
+    <form method="post" action="/process/mymemo">
+    <table>
+      <tr>
+        <td>작성자</td>
+        <td><input type="text" name="name" /></td>
+      </tr>
+      <tr>
+        <td>작성일시</td>
+        <td><input type="text" name="day" /></td>
+      </tr>
+      <tr>
+        <td>내용</td>
+        <td><input type="text" name="daily" /></td>
+      </tr>
+    </table>
+    <br />
+    <tr>
+      <input type="submit" value="저장" name="save" />
+      <input type="submit" value="닫기" name="eixt" />
+    </tr>
+  </body>
+</form>
+</html>

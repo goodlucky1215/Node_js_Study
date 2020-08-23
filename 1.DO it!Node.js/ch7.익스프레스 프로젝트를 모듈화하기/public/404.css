@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+.box {
+  padding: 40px 20px 25px 20px;
+  border: 1px solid gray;
+  border-bottom: 8px solid rgb(55, 52, 218);
+  border-radius: 6px;
+}
+.error_title {
+  padding-bottom: 20px;
+}
+.error_text {
+  padding-top: 10px;
+}

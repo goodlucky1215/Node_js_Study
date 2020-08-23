@@ -1,0 +1,89 @@
+body {
+  width: 1640px;
+  height: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chat {
+  padding: 30px 30px 30px 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.title > h1 {
+  margin-bottom: 0;
+}
+.far {
+  font-size: 50px;
+  color: pink;
+}
+.smalltitle {
+  padding-left: 55px;
+  color: gray;
+}
+.connect,
+.name,
+.recepientid {
+  padding-bottom: 5px;
+}
+.connect > input,
+.id > input,
+.name > input,
+.room > input,
+.sendid > input,
+.recepientid > input,
+.messagedata > input {
+  height: 25px;
+}
+.connectButton,
+.loginButton,
+.logoutButton,
+.roomButton,
+.sendButton {
+  background-color: blue;
+  font-weight: bolder;
+  color: white;
+  border-radius: 4px;
+  height: 33px;
+  width: 105px;
+}
+
+.id,
+.sendid {
+  padding-top: 5px;
+  padding-bottom: 2px;
+}
+
+.room,
+.messagedata {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.chattype {
+  border-radius: 4px;
+  height: 30px;
+  width: 100px;
+}
+.line {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.35);
+  margin: 8px 0px;
+}
+.line::before,
+.line::after {
+  content: "";
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 0px;
+}
+.result {
+  overflow-x: hidden;
+  width: 350px;
+  height: 200px;
+}

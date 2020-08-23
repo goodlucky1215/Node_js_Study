@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>add테스트</title>
+    <meta charset="utf-8" />
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="jquery.jsonrpc.js"></script>
+    <script>
+      $(function () {
+        $.jsonRPC.setup({
+          endPoint: "http://localhost:3000/api",
+          namespace: "",
+        });
+
+        $("#requestButton").click(function () {
+          const aStr = $("#aInput").val();
+          const bStr = $("#bInput").val();
+          const a = parseInt(aStr);
+          const b = parseInt(bStr);
+          const method = "add";
+
+          $.jsonRPC.request(method, {
+            id: 1002,
+            params: [a, b],
+            success: function (data) {
+              println("정상 응답을 받았습니다.");
+              console.dir(data);
+              println(data.result);
+            },
+            error: function (data) {
+              println("오류 응답을 받았습니다.");
+              console.dir(data);
+              println(data.error.code + ", " + data.error.message);
+            },
+          });
+          println("[" + method + "] method로 요청을 보냈습니다.");
+        });
+      });
+
+      function println(data) {
+        $("#results").append("<p>" + data + "</p>");
+      }
+    </script>
+  </head>
+
+  <body>
+    <h3>JSON-RPC add테스트</h3>
+    <br />
+    <input type="text" value="10" name="aInput" id="aInput" />
+    <p>+</p>
+    <input type="text" value="10" name="bInput" id="bInput" />
+    <br />
+    <br />
+    <input
+      type="button"
+      value="요청하기"
+      name="requestButton"
+      id="requestButton"
+    />
+    <br />
+    <p>결과</p>
+    <div id="results"></div>
+  </body>
+</html>

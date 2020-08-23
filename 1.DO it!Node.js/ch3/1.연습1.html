@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>팩토리얼 계산</title>
+</head>
+
+<body>
+  <script>
+  /* 팩토리얼 구하기 */
+  // n의 팩토리얼을 구하는 함수
+    function fact(n){
+	     if(n<=1) return n;   //재귀 종류
+	     return n*fact(n-1);  //재귀 호출
+    }
+    // i 값을 1에서 9까지 1씩 증가시키면서 i의 팩토리얼을 콘솔에 출력한다
+    for(var i=1; i<10; i++) {
+	     document.write(i+"! = " + fact(i) + "<br />");
+	     console.log(i+"! = " + fact(i));
+    }
+    var x;
+    message = "Hi, " + name;
+    alert("안녕하세요")
+    prompt("이름을 입력하십시오","이지혜");
+    parseInt(prompt("나이를 입력하시오"));
+    parseFloat(prompt("키를 입력하시오"));
+    confirm("링크를  표시하겠습니까?");
+    var HEART = Symbol("하트")
+    document.write(HEART.toString());
+  </script>
+</body>
+</html>

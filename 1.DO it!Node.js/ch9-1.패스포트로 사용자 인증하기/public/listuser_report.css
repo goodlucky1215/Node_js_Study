@@ -1,0 +1,94 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 1640px;
+  height: 600px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  padding: 20px 15px 0px 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.userlist_title {
+  position: absolute;
+  left: 605px;
+  padding: 5px 5px 5px 40px;
+  border: 1px solid rgb(55, 52, 218);
+  border-radius: 2px;
+  background-color: rgb(55, 52, 218);
+  color: white;
+}
+
+.m::after {
+  position: absolute;
+  height: 25px;
+  left: 617px;
+  content: " ";
+  z-index: -1;
+  border-bottom: 50px solid;
+  border-left: 50px solid rgba(0, 0, 0, 0);
+  border-right: 50px solid rgba(0, 0, 0, 0);
+  color: #0b4397;
+  transform: rotate(-180deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+}
+
+.info {
+  padding: 70px 20px 20px 20px;
+}
+
+.person1 {
+  width: 280px;
+  padding: 20px 20px 10px 20px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px 6px 0px 0px;
+}
+.name {
+  font-weight: bolder;
+}
+
+.who_age {
+  display: flex;
+  padding-top: 2px;
+  padding-bottom: 20px;
+}
+.who {
+  flex: 1;
+  padding-right: 200px;
+}
+.age {
+  flex: 1;
+}
+.number1 {
+  margin-bottom: 10px;
+  background-color: #e0ffff;
+  height: 50px;
+  border-left: 1px solid #dcdcdc;
+  border-right: 1px solid #dcdcdc;
+  border-bottom: 5px solid rgb(55, 52, 218);
+  border-radius: 0px 0px 6px 6px;
+}
+.number {
+  padding-top: 12px;
+  padding-left: 180px;
+}
+.fas {
+  padding-right: 5px;
+}

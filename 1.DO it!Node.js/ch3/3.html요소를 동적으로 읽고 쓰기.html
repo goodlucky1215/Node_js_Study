@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>스톱워치</title>
+  <script> //스탑워치
+    window.onload = function() {
+      var startButton = document.getElementById("start"); //start버튼요소
+      var stopButton = document.getElementById("stop"); //stop버튼요소
+      var display = document.getElementById("display"); //결과를 표시하는 요소
+      var startTime,timer;
+      startButton.onclick=start; // start버튼 활성화
+      function start() {
+        startButton.onclick = null; //start버튼 비활성화
+        stopButton.onclick = stop; //stop버튼 활성화
+        startTime = new Date();
+        // 0.01초마다 경과한 시간을 표시
+        timer = setInterval(function() {
+          var now = new Date();
+          //display에 경과한 시간 쓰기
+          display.innerHTML = ((now-startTime)/1000).toFixed(2);
+        },10);
+      }
+      function stop() {
+        clearInterval(timer);        //타이머 해제
+        startButton.onclick = start; //start 버튼 활성화
+      }
+    };
+  </script>
+  <script> //체질량지수 계산하기
+    window.onload=function(){
+      document.getElementById("button").onclick = function(){
+        //input 요소에 입력된 몸무게 데이터와 키 데이터를 가져온다
+        var h = parseFloat(document.getElementById("height").value);
+        var w = parseFloat(document.getElementById("weight").value);
+        //체질량지수를 bmi라는 id를 가진 요소(output 요소)에 기록한다
+        var bmi = document.getElementById("bmi");
+        bmi.innerHTML = (w/h/h).toFixed(1);
+      };
+    };
+  </script>
+  <script> // DOM과 document.write를 같이 넣으면 DOM애들이 작동이 안됨
+  /*  var now = new Date();
+    var month = now.getMonth()+1;
+    var day=now.getDate();
+    document.write("<p>오늘은 "+month+"월"+day+"일 입니다. </p>"); */
+  </script>
+
+</head>
+<body>
+  <p id="display">0.00</p>
+  <input id="start" type="button" value="start">
+  <input id="stop" type="button" value="stop">
+
+  <p>키: <input type="number" id="height"> m</p>
+  <p>몸무게: <input type="number" id="weight"> kg</p>
+  <p>당신의 체질량지수는 <output id='bmi'>?</output>입니다</p>
+  <input type="button" id="button" value="계산">
+</body>
+</html>

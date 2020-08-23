@@ -1,0 +1,53 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+.box {
+  padding: 20px 20px 20px 20px;
+  border: 1px solid gray;
+  border-bottom: 8px solid rgb(55, 52, 218);
+  border-radius: 6px;
+}
+
+.fas {
+  color: rgb(67, 67, 252);
+}
+
+.adduser_text1 {
+  padding: 0 0 5px 40px;
+}
+.adduser_text2 {
+  color: rgb(163, 160, 160);
+}
+
+.write_id,
+.write_password,
+.write_name {
+  width: 280px;
+  height: 33px;
+  padding-left: 5px;
+  margin-left: 8px;
+}
+
+.adduser_check {
+  margin-left: 284px;
+  margin-top: 10px;
+  padding: 10px 24px 10px 24px;
+  border: 1px;
+  border-radius: 4px;
+  background-color: rgb(55, 52, 218);
+  color: white;
+  font-size: 16px;
+}

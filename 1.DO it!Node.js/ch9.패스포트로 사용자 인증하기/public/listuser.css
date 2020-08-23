@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  padding: 20px 40px 20px 40px;
+  border: 1px solid gray;
+  border-bottom: 8px solid rgb(55, 52, 218);
+  border-radius: 6px;
+}
+
+.fas {
+  color: rgb(67, 67, 252);
+}
+.user_text1 {
+  padding-left: 40px;
+  padding-bottom: 40px;
+}
+.user_text2 {
+  color: gray;
+  font-size: 17px;
+}
+.save1 {
+  padding: 100px;
+}
+.save2 {
+  width: 80px;
+  height: 50px;
+  border: 0;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgb(55, 52, 218);
+  color: white;
+}
